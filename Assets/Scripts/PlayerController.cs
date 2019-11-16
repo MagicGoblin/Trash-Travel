@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D BoatRB;
     public int Speed;
+    public int HorizontalSpeed;
     public Vector2 ForwardDirection;
     public Vector2 BackDirection;
     public Vector2 RightDirection;
@@ -19,7 +20,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(BoatRB.position);
+        //print(BoatRB.position);
         if (Input.GetKey(KeyCode.W))
         {
             BoatRB.AddForce(Speed * ForwardDirection);
@@ -30,11 +31,11 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D))
         {
-            BoatRB.AddForce(Speed * RightDirection);
+            BoatRB.AddForce(HorizontalSpeed * RightDirection);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.A))
         {
-            BoatRB.AddForce(Speed * LeftDirection);
+            BoatRB.AddForce(HorizontalSpeed * LeftDirection);
         }
     }
 }
